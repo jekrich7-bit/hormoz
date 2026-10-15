@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "hormozi-brain": {
+      "source": {
+        "source": "github",
+        "repo": "aziznizomofficial/hormozi-brain"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "hormozi-brain@hormozi-brain": true
+  }
+}
