@@ -402,7 +402,7 @@ MDH ta'lim dasturlariga yaqin, shuning uchun imtihonlarga tayyorlanishda foydali
 - **Make It Stick** (Brown, Roediger, McDaniel): samarali o'rganish usullari
 - **Atomic Habits** (James Clear): kundalik odatlar tizimi
 - **The E-Myth Dentist** (Michael E. Gerber): stomatologik amaliyotni tizimlashtirish
-- **$100M Offers** va **$100M Leads** (Alex Hormozi): kuchli taklif yaratish va bemor jalb qilish (klinika ochganingizda)
+- **\$100M Offers** va **\$100M Leads** (Alex Hormozi): kuchli taklif yaratish va bemor jalb qilish (klinika ochganingizda)
 
 ---
 
