@@ -14,8 +14,12 @@ IELTS uslubidagi kompyuter mock imtihoni, darajani aniqlash (placement), darajam
 | 02 | [Daraja, placement, guruhlash va dastur](docs/02-daraja-placement-guruhlash-dastur.md) | IELTS formati, xom ball → band, L0–L6 darajalar, adaptiv placement, guruhlash, Band 5/6/7/8/9 dasturlari, Writing/Speaking baholash usuli |
 | 03 | [Texnik arxitektura va Claude Code](docs/03-texnik-arxitektura-va-claude-code.md) | Eng kerakli vositalar, arxitektura, ma'lumotlar modeli, AI narxlari, STT tanlash testi, MCP/skill/subagent/hook, `CLAUDE.md` namunasi |
 | 04 | [Biznes va moliya](docs/04-biznes-va-moliya.md) | Narxlar zinapoyasi, birlik iqtisodiyoti, xarajatlar, zararsizlik nuqtasi, ssenariylar, marketing, KPI, xavflar |
-| 05 | [Yo'l xaritasi](docs/05-yol-xaritasi.md) | 0–5 bosqichlar, har vazifaning qabul mezoni, ochiq savollar |
+| 05 | [Yo'l xaritasi](docs/05-yol-xaritasi.md) | Sprint 0–12 (~6 oy), asosiy bosqichlar, kodsiz ishlar, ochiq savollar |
 | 06 | [Tashqi reja tahlili](docs/06-tashqi-reja-tahlili.md) | Boshqa manbadan olingan rejaning har bandiga baho |
+| 07 | [Tavsiyalar va bo'limlar](docs/07-tavsiyalar-va-bolimlar.md) | Asosiy tavsiyalar, nimani qurmasligimiz, rollar, sayt xaritasi, har bir bo'lim tavsifi |
+| 08 | [Dizayn tizimi](docs/08-dizayn-tizimi.md) | Tamoyillar, brend, ranglar, shriftlar, komponentlar, asosiy ekranlarning sxemalari |
+| 09 | [Admin panel](docs/09-admin-panel.md) | Ruxsatlar matritsasi, 20 ta modul, kontent workflow'i, sprintlar bo'yicha reja |
+| 10 | [Skelet va texnik spetsifikatsiya](docs/10-skelet-va-texnik-spetsifikatsiya.md) | Versiyalar, papkalar, marshrutlar, ma'lumotlar modeli, imtihon dvigateli, fon ishlari, xavfsizlik, CI |
 
 ## Asosiy qarorlar (qisqacha)
 

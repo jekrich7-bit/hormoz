@@ -1,110 +1,160 @@
-# 05 — Yo'l xaritasi: qadamma-qadam
+# 05 — Yo'l xaritasi: sprintlar bo'yicha
 
-Har bir bosqichda "Tayyor" mezoni bor. U bajarilmaguncha keyingi bosqichga o'tilmaydi.
-Muddatlar (🧮) bir kishi Claude Code bilan, haftasiga ~25–30 soat ishlaydi degan farazga asoslangan.
-
----
-
-## 0-bosqich. Qarorlar va tayyorgarlik (1-hafta)
-
-**Siz qabul qiladigan qarorlar** (oxiridagi "Ochiq savollar"ga qarang):
-- [ ] Academic, General Training yoki ikkalasi (tavsiya: avval Academic)
-- [ ] Brend nomi ("IELTS" so'zisiz) va domen
-- [ ] Hosting varianti: A (tez MVP) yoki B (O'zbekistonda) — yurist bilan
-- [ ] YaTT yoki MChJ ochish (to'lov provayderlari uchun shart)
-
-**Texnik tayyorgarlik:**
-- [ ] Anthropic API kaliti, xarajat limiti bilan
-- [ ] STT va Pronunciation provayderlarida sinov akkauntlari
-- [ ] Telegram bot (BotFather)
-- [ ] Payme, Click va Uzum bilan merchant arizalari (bir necha hafta ketishi mumkin, shuning uchun hozirdan)
-- [ ] 2 nafar sertifikatli mutaxassis-baholovchi bilan kelishuv (kalibratsiya uchun)
-- [ ] **STT tanlash testi** (03-hujjat, 6-bo'lim)
-
-**Tayyor:** barcha akkauntlar ochilgan, STT tanlangan, `CLAUDE.md` repoga qo'shilgan.
+- **Sprint** — 2 hafta (Sprint 0 — 1 hafta). Jami ~25 hafta, ya'ni taxminan 6 oy.
+- 🧮 Faraz: bir kishi Claude Code bilan haftasiga ~25–30 soat ishlaydi; kontent va tashkiliy ishlar parallel ravishda boradi.
+- Har bir sprint oxirida **namoyish** bo'ladi va "Tayyor" mezoni tekshiriladi. Mezon bajarilmasa, keyingi sprintga o'tilmaydi.
+- Bog'liq hujjatlar: bo'limlar 07, dizayn 08, admin 09, skelet 10.
 
 ---
 
-## 1-bosqich. Listening va Reading mock dvigateli (2–4-haftalar)
+## Asosiy bosqichlar (milestone)
 
-| # | Vazifa (Claude Code'ga Plan mode'da beriladi) | Qabul mezoni |
+| # | Hafta | Natija |
 |---|---|---|
-| 1.1 | Next.js loyiha + Drizzle + PostgreSQL + i18n (uz/ru) skeleti | `npm run dev`, lint va typecheck toza |
-| 1.2 | Telegram Login | Kirish va chiqish ishlaydi, profil yaratiladi |
-| 1.3 | Ma'lumotlar modeli: tests, sections, questions, attempts, responses | Migratsiya + seed ma'lumotlar |
-| 1.4 | Imtihon UI: taymer, savollar paneli, flag, highlight, eslatma, ikkiga bo'lingan Reading ekrani, Listening pleyeri (bir marta ijro, imtihondagidek) | Playwright E2E: to'liq L+R urinishi boshidan oxirigacha |
-| 1.5 | Avtomatik saqlash va internet uzilishidan keyin tiklash | Sahifa yangilansa ham javoblar saqlanib qoladi |
-| 1.6 | Avtomatik tekshirish + xom ball → band + natija sahifasi | `lib/scoring` unit testlari (yaxlitlash, chegaralar) |
-| 1.7 | Admin panel: test va savollarni kiritish | Muharrir kodsiz test qo'sha oladi |
-| 1.8 | 2 ta original L+R test (TTS audio bilan) | `content-reviewer` subagenti va inson tekshiruvidan o'tgan |
-
-**Tayyor:** 10 nafar tanish odam 2 ta testni xatosiz topshirib chiqadi.
+| M1 | 5 | Ichki L/R mock: admin'da yaratilgan test talaba ekranida to'liq ishlaydi |
+| M2 | 9 | To'liq mock (L+R+W+S) AI bahosi va o'lchangan aniqlik bilan |
+| M3 | 13 | To'lov bilan yopiq beta: 100 foydalanuvchi |
+| M4 | 21 | O'qitish, guruhlar va B2B portal |
+| M5 | 25 | Ochiq ishga tushirish (O'zbekistondagi hostingda) |
 
 ---
 
-## 2-bosqich. Writing va Speaking AI baholash (5–8-haftalar)
+## Sprint 0 (1-hafta) — Poydevor
 
-| # | Vazifa | Qabul mezoni |
-|---|---|---|
-| 2.1 | Kalibratsiya to'plamini yig'ish: 100+ insho, 2 nafar ekspert bahosi bilan | Bazada saqlangan, ekspertlar o'rtasidagi moslik hisoblangan |
-| 2.2 | `eval:scoring` skripti: QWK, MAE, ±0.5 moslik | Bitta buyruq bilan hisobot chiqaradi |
-| 2.3 | Writing baholash: navbat + Claude Opus 5.5 + JSON sxema + prompt caching | Kalibratsiyada MAE ≤ 0.5 (ichki maqsad) |
-| 2.4 | Writing feedback UI: mezonlar, xatolar matnda belgilangan, "qayta yozish" | O'quvchi qayta yozadi va farqni ko'radi |
-| 2.5 | Speaking: imtihon oluvchi ovozi (TTS), `MediaRecorder` bilan yozish, yuklash | Telefon va kompyuter brauzerlarida ishlaydi |
-| 2.6 | Speaking konveyeri: STT → xususiyatlar → Pronunciation → Claude | 50 ta speaking namunasida inson bilan solishtirilgan |
-| 2.7 | Inson navbati: past ishonchli ishlar ekspertga | Ekspert paneli |
-| 2.8 | Placement v1 (qat'iy shaklda, CEFR teglari bilan, 30–40 savol + mini Writing/Speaking) | Natija sahifasida daraja, band ± oraliq va yo'l tavsiyasi |
+| Yo'nalish | Vazifalar |
+|---|---|
+| Kod | Next.js skeleti (10-hujjat, 2-bo'lim), Drizzle + lokal Postgres, i18n (uz/ru), dizayn tokenlari, CI (lint, typecheck, test) |
+| Auth | Better Auth + Telegram kirish, rollar |
+| Admin | Admin qobig'i: sidebar, ⌘K, ruxsatlar (`can()`), 2FA, audit jurnali |
+| Claude Code | `CLAUDE.md`, Playwright va Context7 MCP, hook'lar (lint/typecheck, `.env` himoyasi) |
+| Siz (kodsiz) | Brend nomi, YaTT yoki MChJ ochish, to'lov provayderlariga ariza, mutaxassislar bilan kelishuv, STT tanlash testi uchun 20 ta yozuv yig'ish |
 
-**Tayyor:** to'liq mock (L+R+W+S) ishlaydi; AI aniqligi o'lchangan va yozib qo'yilgan.
+**Tayyor:** kirish ishlaydi, admin faqat 2FA bilan ochiladi, CI yashil.
+
+## Sprint 1 (2–3-haftalar) — Reading: konstruktor + imtihon ekrani
+
+| Yo'nalish | Vazifalar |
+|---|---|
+| Admin | Test konstruktori (Reading), Reading uchun barcha savol turlari, jonli ko'rinish, savollar banki, media kutubxona |
+| Talaba | Imtihon rejimi: taymer, SplitPane, belgilash va eslatma, flag, savollar paneli, sozlamalar (shrift, kontrast), avtomatik saqlash |
+| Mantiq | `lib/scoring` va `lib/normalize` unit testlar bilan |
+| Kontent | 1-test: Reading qismi |
+
+**Tayyor:** Playwright testi admin'da yaratilgan Reading testini boshidan oxirigacha topshiradi va to'g'ri band chiqadi.
+
+## Sprint 2 (4–5-haftalar) — Listening + natijalar + bosh sahifa → **M1**
+
+| Yo'nalish | Vazifalar |
+|---|---|
+| Admin | Listening muharriri, TTS generator, blueprint tekshiruvi, kontent workflow (qoralama → nashr) |
+| Talaba | Listening ekrani (bir marta ijro, oxirida 2 daqiqa tekshirish), L/R natija hisoboti (dalil bilan) |
+| Ommaviy | Bosh sahifa, narxlar (hozircha statik), huquqiy sahifalar, disclaimer |
+| Kontent | 2 ta to'liq L+R test |
+
+**Tayyor:** 10 nafar tanish odam 2 ta L+R testni xatosiz topshiradi.
+
+## Sprint 3 (6–7-haftalar) — Writing AI
+
+| Yo'nalish | Vazifalar |
+|---|---|
+| Admin | Prompt reestri, AI navbati, kalibratsiya to'plamlari, eval paneli, AI kontent studiyasi (qoralama yaratish) |
+| Talaba | Writing ekrani (so'z hisoblagichi, imlo tekshiruvi o'chiq), Writing feedback (AnnotatedEssay), qayta yozish |
+| Backend | pg-boss worker, `score-writing`, structured output, prompt caching, model/prompt versiyasini saqlash |
+| Eval | `npm run eval:scoring`: QWK, MAE, ±0.5 moslik |
+| Siz | Kalibratsiya uchun 100+ insho va har biriga 2 ta mutaxassis bahosi |
+
+**Tayyor:** kalibratsiya to'plamida o'lchangan aniqlik hisoboti tayyor; feedback 2 daqiqadan tezroq keladi.
+
+## Sprint 4 (8–9-haftalar) — Speaking + inson tekshiruvi → **M2**
+
+| Yo'nalish | Vazifalar |
+|---|---|
+| Talaba | Speaking ekrani (TTS imtihon oluvchi, Part 2 tayyorgarlik, Recorder), Speaking hisoboti (TranscriptPlayer) |
+| Backend | `score-speaking`: STT → fluency xususiyatlari → Azure Pronunciation → Claude |
+| Admin | Inson tekshiruvi ish joyi (ko'r rejim), navbat qoidalari, mutaxassislar statistikasi |
+| Kontent | 4 ta to'liq test (L+R+W+S) |
+
+**Tayyor:** to'liq mock ishlaydi; 50 ta speaking namunasida AI va inson bahosi solishtirilgan.
+
+## Sprint 5 (10–11-haftalar) — Placement + bosh panel
+
+| Yo'nalish | Vazifalar |
+|---|---|
+| Talaba | Placement v1 (qat'iy shakl), natija sahifasi (radar, yo'l, PDF), "Bugungi reja" bosh paneli, natijalar tarixi va progress |
+| Admin | Foydalanuvchilar moduli, bosh panel KPI'lari |
+| Integratsiya | Telegram bot: natija tayyor, eslatmalar |
+| Kontent | 300 ta placement savoli (CEFR teglari bilan) |
+
+**Tayyor:** placement'ni boshlash, natijani olish va yo'lni tanlash oqimi to'liq ishlaydi.
+
+## Sprint 6 (12–13-haftalar) — To'lov va yopiq beta → **M3**
+
+| Yo'nalish | Vazifalar |
+|---|---|
+| Backend | Payme va Click (keyin Uzum), webhook'lar, idempotentlik, tarif limitlari |
+| Talaba | Obuna sahifasi, paywall, promo kod |
+| Admin | Tariflar, promo kodlar, tranzaksiyalar, qaytarishlar, murojaatlar |
+| Operatsiya | Sentry, PostHog, AI xarajatlari hisoboti; maxfiylik siyosati va oferta (yurist ko'rib chiqqan) |
+| Beta | 100 nafar foydalanuvchi, haqiqiy to'lovlar |
+
+**Tayyor:** kamida 20 ta pullik mijoz; KPI'lar (04-hujjat, 8-bo'lim) o'lchanmoqda.
+
+## Sprint 7–8 (14–17-haftalar) — O'qitish
+
+| Yo'nalish | Vazifalar |
+|---|---|
+| Talaba | Kurs ("Mening yo'lim"), darslar va darvoza testlari, mashqlar bo'limi, FSRS lug'at va xatolar jurnali |
+| Admin | Darslar, modullar, yo'llar, lug'at to'plamlari (CSV import) |
+| Kontent | L2, L3 va L4 yo'llari uchun birinchi modullar |
+
+**Tayyor:** o'quvchi placement → yo'l → kunlik reja → takrorlash siklini to'liq bosib o'tadi.
+
+## Sprint 9–10 (18–21-haftalar) — Guruhlar, B2B, marketing → **M4**
+
+| Yo'nalish | Vazifalar |
+|---|---|
+| Talaba | Guruhim sahifasi, Mock Day va reyting |
+| Markaz portali | O'quvchilar, guruhlar, topshiriqlar, hisobotlar, litsenziya |
+| Admin | Kogortalar va avtomatik guruhlash, B2B markazlar, Telegram xabarnomalar, Mock Day, analitika |
+| Biznes | Birinchi 2–3 ta markaz bilan pilot; "7.0 Sprint" taklifi |
+
+**Tayyor:** kamida 2 ta markaz portaldan foydalanmoqda.
+
+## Sprint 11–12 (22–25-haftalar) — Ishga tushirish → **M5**
+
+| Yo'nalish | Vazifalar |
+|---|---|
+| Sifat | Savol statistikasi va bayroqlar, yuklama testi (Mock Day uchun 300 kishi), xavfsizlik tekshiruvi (`/security-review`) |
+| Placement | Savollar yetarli javob yig'gan bo'lsa, IRT kalibratsiyasi; CAT faqat shundan keyin |
+| Infratuzilma | O'zbekistondagi hostingga ko'chish (B varianti), zaxira nusxalar, to'lovlarni solishtirish |
+| Ommaviy | Ochiq aniqlik hisoboti sahifasi, qo'llanmalar (SEO) |
+
+**Tayyor:** ochiq ishga tushirish.
 
 ---
 
-## 3-bosqich. To'lov va yopiq beta (9–12-haftalar)
+## Parallel yo'nalish: kodsiz ishlar (siz va jamoa)
 
-| # | Vazifa | Qabul mezoni |
-|---|---|---|
-| 3.1 | Payme + Click (keyin Uzum) integratsiyasi, webhook'lar | Sandbox'da barcha holatlar: muvaffaqiyat, bekor qilish, qaytarish |
-| 3.2 | Tariflar va oylik limitlar (`usage_quotas`) | Limit tugaganda to'g'ri xabar va yangilash taklifi |
-| 3.3 | O'quvchi paneli: progress grafigi, zaif ko'nikmalar, keyingi qadam | |
-| 3.4 | FSRS: so'zlar va xatolar jurnali kartochkalari | Kunlik takrorlash ishlaydi |
-| 3.5 | Telegram bot: eslatmalar, natijalar, "Mock Day" | |
-| 3.6 | Disclaimer, maxfiylik siyosati, foydalanish shartlari, rozilik (audio uchun) | Yurist ko'rib chiqqan |
-| 3.7 | Sentry + PostHog + AI xarajatlari monitoringi | Har kuni xarajat hisoboti |
-| 3.8 | **Yopiq beta: 100 nafar foydalanuvchi** | Haqiqiy to'lovlar, KPI'lar o'lchangan |
-
-**Tayyor:** kamida 20 ta pullik mijoz, D30 saqlanish o'lchangan, birinchi haqiqiy IELTS natijalari (TRF) yig'ila boshlagan.
+| Hafta | Ish |
+|---|---|
+| 1 | Brend nomi, yuridik shaxs, to'lov provayderlariga arizalar, mutaxassislar bilan kelishuv |
+| 1–4 | Kontent muharririni topish; kontent qo'llanmasini yozish (men qoralamasini tayyorlayman) |
+| 3–8 | Kalibratsiya ma'lumotlari: insholar va speaking yozuvlari, ularning mutaxassis baholari |
+| Har sprint | +2 ta original test (AI qoralama → muharrir → pilot) |
+| 6–12 | Telegram kanalini o'stirish, haftalik bepul mashqlar, birinchi hamkor o'qituvchilar |
+| 10–14 | Yurist: maxfiylik, oferta, shaxsiy ma'lumotlarni lokalizatsiya qilish |
+| 14+ | O'quv markazlari bilan uchrashuvlar (B2B pilot) |
 
 ---
 
-## 4-bosqich. O'qitish va guruhlash (4–6-oylar)
+## Ochiq savollar (javobingiz kerak)
 
-- 4.1 Band 5, 6 va 7 yo'llari uchun mikro-darslar (02-hujjat, 5-bo'lim)
-- 4.2 Kogortalar, guruhlash algoritmi va har 4 haftada qayta guruhlash
-- 4.3 Placement v2: savollar kalibrlangach (har biriga 100–250 javob) CAT'ga o'tish
-- 4.4 B2B o'quv markazi paneli: o'quvchilar, guruhlar, hisobotlar
-- 4.5 "7.0 Sprint" taklifi; aniqlik kafolati faqat MAE ≤ 0.5 bo'lsa yoqiladi
-- 4.6 Saytda ochiq aniqlik hisoboti
-
-**Tayyor:** bazaviy ssenariyga qarab harakat (04-hujjat, 6-bo'lim) va zararsizlik nuqtasiga yaqinlashish.
-
----
-
-## 5-bosqich. Kengayish (6–12-oylar)
-
-- Band 8 yo'li va premium 1:1 murabbiylik
-- Mutaxassis-baholovchilar marketplace'i
-- CEFR Multilevel mock — ikkinchi mahsulot liniyasi (01-hujjat, A4)
-- General Training
-- PWA (alohida mobil ilova hozircha shart emas)
-- Speaking Part 3 uchun dinamik qo'shimcha savollar
-
----
-
-## Ochiq savollar (sizning qaroringiz kerak)
-
-1. **Asosiy auditoriya kim:** maktab o'quvchilari va abituriyentlar (16–19), talabalar yoki ishlaydiganlar?
-2. **Academic yoki General Training:** qaysi biri birinchi?
-3. **Byudjet:** boshlang'ich ~44 mln so'm va oyiga ~25 mln so'm doimiy xarajat (04-hujjat) sizga to'g'ri keladimi?
-4. **Jamoa:** kontent muharriri va mutaxassis-baholovchini topa olasizmi, yoki men ularga talablar ro'yxatini tuzib beraymi?
-5. **Hosting:** yurist bilan shaxsiy ma'lumotlarni lokalizatsiya qilish masalasini qachon ko'rib chiqasiz?
-6. **Brend nomi:** "Hormoz" ishchi nom bo'lib qoladimi?
+1. **MVP fokusi:** Academic + to'liq mock + Writing AI bilan boshlaymizmi? (Mening tavsiyam: ha.)
+2. **Auditoriya:** maktab o'quvchilari va abituriyentlar, talabalar yoki ishlaydiganlar?
+3. **Dizayn:** dengiz ko'ki + oltin rang va Inter shrifti ma'qulmi (08-hujjat)? Yoki boshqa yo'nalish kerakmi?
+4. **Brend nomi:** "Hormoz" qoladimi?
+5. **Admin:** 09-hujjatdagi rollar sizning jamoangizga mosmi? Kim qaysi rolda bo'ladi?
+6. **Byudjet:** boshlang'ich ~44 mln so'm va oyiga ~25 mln so'm (04-hujjat) to'g'ri keladimi?
+7. **Jamoa:** kontent muharriri va mutaxassis-baholovchini o'zingiz topasizmi, yoki ular uchun vakansiya va talablarni tayyorlab beraymi?
+8. **Hosting:** A varianti (tez MVP) bilan boshlab, ishga tushirishdan oldin B variantiga o'tamizmi?
+9. **Prototip:** kod yozishdan oldin 7 ta asosiy ekranning bosiladigan prototipini ko'rishni xohlaysizmi?
